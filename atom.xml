@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Rong</title>
+  
+  <subtitle>前端学习者</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-02-22T08:15:19.109Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Rong Pan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello</title>
+    <link href="http://yoursite.com/2018/02/22/hello/"/>
+    <id>http://yoursite.com/2018/02/22/hello/</id>
+    <published>2018-02-22T05:34:36.000Z</published>
+    <updated>2018-02-22T08:15:19.109Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一个测试页面，先看看编写的效果，熟悉下操作<br><a id="more"></a><br>这个内容应该是点击more是才看的到的。</p>]]></content>
+    
+    <summary type="html">
+    
+      这是一个测试页面
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
