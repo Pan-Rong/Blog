@@ -5,9 +5,9 @@
   <subtitle>前端学习者</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://pan-rong.github.io/"/>
   <updated>2018-02-22T08:15:19.109Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://pan-rong.github.io/</id>
   
   <author>
     <name>Rong Pan</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>hello</title>
-    <link href="http://yoursite.com/2018/02/22/hello/"/>
-    <id>http://yoursite.com/2018/02/22/hello/</id>
+    <link href="https://pan-rong.github.io/2018/02/22/hello/"/>
+    <id>https://pan-rong.github.io/2018/02/22/hello/</id>
     <published>2018-02-22T05:34:36.000Z</published>
     <updated>2018-02-22T08:15:19.109Z</updated>
     
@@ -32,7 +32,7 @@
     </summary>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="https://pan-rong.github.io/tags/hexo/"/>
     
   </entry>
   
