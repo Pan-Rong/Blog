@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Rong">
 <meta property="og:description" content="学习笔记">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-05T09:59:22.087Z">
+<meta property="og:updated_time" content="2018-03-05T10:06:37.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记">
 <meta name="twitter:description" content="学习笔记">
@@ -202,64 +202,110 @@ ES5中的类
 4.“继承”的方法被放在构造函数的原型对象上
 
 ES6中类,新类的编写：(注：类里各函数之间不要逗号)
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    class Plane &#123;</span><br><span class="line">      constructor(numEngines) &#123;</span><br><span class="line">        this.numEngines = numEngines;</span><br><span class="line">        this.enginesActive = false;</span><br><span class="line">       &#125;</span><br><span class="line">        startEngines() &#123;</span><br><span class="line">          console.log(&apos;starting engines…&apos;);</span><br><span class="line">          this.enginesActive = true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //以下是ES5中的startEngines定义,且ES5中类定义没有构造器函数，像普通函数一样定义</span><br><span class="line">    //Plane.prototype.startEngines = function () &#123;</span><br><span class="line">    //  console.log(&apos;starting engines...&apos;);</span><br><span class="line">    //  this.enginesActive = true;</span><br><span class="line">    //&#125;;</span><br><span class="line">```  </span><br><span class="line">    ES6中的子类</span><br><span class="line">    在ES6中，使用super和extends关键字扩展类；</span><br><span class="line">    关键字extends将自己设为子类，要让子类可以访问到父类，需要使用关键字super。</span><br><span class="line">    super既可被用作函数，也可被用作对象，但是super必须在this之前被调用，例：</span><br></pre></td></tr></table></figure>
-<pre><code>class Tree {
-    constructor(size = &apos;10&apos;, leaves = {spring: &apos;green&apos;, summer: &apos;green&apos;, fall: &apos;orange&apos;, winter: null}) {
-        this.size = size;
-        this.leaves = leaves;
-        this.leafColor = null;
-    }   
-    changeSeason(season) {
-        this.leafColor = this.leaves[season];
-        if (season === &apos;spring&apos;) {
-        this.size += 1;
-        }
-      }
-}
-class Maple extends Tree {
-    constructor(syrupQty = 15, size, leaves) {
-        super(size, leaves);
-        this.syrupQty = syrupQty;
-    }
-    changeSeason(season) {
-        super.changeSeason(season);
-        if (season === &apos;spring&apos;) {
-            this.syrupQty += 1;
-        }
-    } 
-    gatherSyrup() {
-        this.syrupQty -= 3;
-    }
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 3.ES6新增内置功能</span><br><span class="line">    </span><br><span class="line">**(1) Symbol(标识符)**   </span><br><span class="line"></span><br><span class="line">    Symbol 只是一个唯一标识符，最常用于唯一标识对象中的属性(如对象中属性的名字相同但value不同时).但是不能用来访问标识符本身。</span><br><span class="line">    </span><br><span class="line">    Symbol的创建：Symbol(),并添加一个可选的字符串作为其描述。例：</span><br></pre></td></tr></table></figure>
-<pre><code>const sym1 = Symbol(&apos;apple&apos;);
-console.log(sym1);//Symbol(apple)
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**(2) 迭代器协议和可迭代协议(不是ES6内置)**</span><br><span class="line"></span><br><span class="line">    ES6中新增的两个协议：迭代器协议和可迭代协议</span><br><span class="line">    </span><br><span class="line">    其中，可迭代协议用来定义和自定义对象的迭代行为；工作原理：为了使对象可迭代，它必须实现可迭代接口(即必须包含默认的迭代器</span><br><span class="line">    方法)。</span><br><span class="line"></span><br><span class="line">    迭代器协议用来定义对象生成一系列值的标准方式；即定义对象如何迭代的流程。工作原理：通过执行.next() 方法来完成这一流程。</span><br><span class="line">    next()方法是无参数函数，返回具有两个属性的对象：value(下个值数据)和done(为false继续迭代，为true达到末尾);</span><br><span class="line">    </span><br><span class="line">**(3) Set(集合、单值、ES6内置可迭代)**</span><br><span class="line">  </span><br><span class="line">    Set()数学意义上的集合，即每个数字都是唯一的，只出现一次；不基于索引，不可单独被访问.</span><br><span class="line">    </span><br><span class="line">    Set创建：new  Set();</span><br><span class="line">    </span><br><span class="line">    Set修改：.add()增加，.delete()删除，.clear()清除</span><br><span class="line">    注：若增加时，条目重复，则Set中不增加(返回Set对象)；若删除时，条目没有，则不删除(成功返回true,失败返回false)</span><br><span class="line">    </span><br><span class="line">    Set使用：</span><br><span class="line">      .size返回条目数；</span><br><span class="line">      .has()检查Set中是否存在某个条目，若有返回true，没有返回false</span><br><span class="line">      .values()返回Set中的SetIterator对象，即所有值；</span><br><span class="line">      .keys()同.values()</span><br><span class="line">      </span><br><span class="line">    Set循环访问：</span><br><span class="line">      1.使用SetIterator和.next()访问Set中的每一项</span><br></pre></td></tr></table></figure>
-<pre><code>const iterator = months.values();
-iterator.next();
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.使用for...of循环</span><br></pre></td></tr></table></figure>
-<pre><code>const colors = new Set([&apos;red&apos;, &apos;orange&apos;, &apos;yellow&apos;, &apos;green&apos;, &apos;blue&apos;, &apos;violet&apos;, &apos;brown&apos;, &apos;black&apos;]);
-for (const color of colors) {
-     console.log(color);
-}    
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">**(4) WeakSet(弱集合)**    </span><br><span class="line"> </span><br><span class="line">    WeakSet和Set的区别：</span><br><span class="line">      1.WeakSet只能包含对象；</span><br><span class="line">      2.WeakSet无法迭代，不能循环访问</span><br><span class="line">      3.WeakSet没有.clear()方法</span><br><span class="line">    </span><br><span class="line">    WeakSet创建：new WeakSet();</span><br><span class="line">    </span><br><span class="line">    垃圾回收：</span><br><span class="line">    JS中创建新值会分配内存，当这些值不需要时，将自动释放内存。该过程就称为垃圾回收</span><br><span class="line">    </span><br><span class="line">    WeakSet 通过专门使用对象作为键值来利用这一点。如果将对象设为 null，则本质上是删除该对象，</span><br><span class="line">    当 JS 的垃圾回收器运行时，该对象之前占用的内存将被释放，以便稍后在程序中使用。</span><br><span class="line">   </span><br><span class="line">**(5) Map(映射)**</span><br><span class="line"></span><br><span class="line">    Map是一个可以存储键值对的对象，键和值都可以是对象、原始值或二者的结合。</span><br><span class="line">    </span><br><span class="line">    Map创建：new Map();与Set不同，其不能通过值列表创建，要使用.set()方法添加键值。</span><br><span class="line">    </span><br><span class="line">    Map处理：</span><br><span class="line">        .set()方法，有两个参数，第一个参数是键，用来引用第二个参数即值；</span><br><span class="line">        .delete()方法移除键值对；</span><br><span class="line">        .clear()清除所有键值对</span><br><span class="line">      注：.set()方法添加已存在的，不会报错，但会覆盖；.delete()方法删除不存在的，不变；成功为true，失败为false</span><br><span class="line">        .has()传入键来检查Map中是否存在该键值对</span><br><span class="line">        .get()方法传入键，检查Map中的值</span><br><span class="line">        .keys()&amp;.values()将返回新的迭代器对象MapIterator</span><br><span class="line"></span><br><span class="line">    Map循环访问：</span><br><span class="line">      1.使用MapIterator和.next()循环访问每个键或值(取决于使用keys或values)</span><br><span class="line">      2.使用for...of循环访问键值对</span><br><span class="line">      3.使用Map的.forEach()访问  </span><br><span class="line"></span><br><span class="line">**(6) WeakMap(弱映射)**    </span><br><span class="line"></span><br><span class="line">    WeakMap和Map的关键区别：</span><br><span class="line">      1.WeakMap只能包含对象作为键，</span><br><span class="line">      2.WeakMap无法迭代</span><br><span class="line">      3.WeakMap没有.clear()方法</span><br><span class="line">      </span><br><span class="line">    WeakMap创建：new WeakMap()</span><br><span class="line">    </span><br><span class="line">    垃圾回收：(同WeakSet)</span><br><span class="line">    </span><br><span class="line">**(7) Promise**   </span><br><span class="line"></span><br><span class="line">    promise 使你能够展开一些可以异步完成的工作，并回到常规工作</span><br><span class="line">      </span><br><span class="line">    Promise的创建：</span><br><span class="line">        new Promise()；创建 promise 时，必须向其提供异步运行的代码(即带初始函数);</span><br><span class="line">    Promise通过向初始函数中传入两个函数来提示请求成功或失败，通常我们将这两个函数称为resolve(成功)和reject(失败)</span><br><span class="line">      </span><br><span class="line">    Promise立即返回对象</span><br><span class="line">    Promise将立即返回一个对象，该对象具有一个.then()方法，我们可以让该方法通知我们promise中的请求成功与否。</span><br><span class="line">    .then()方法会接收两个函数：</span><br><span class="line">      1.请求成功完成时要运行的函数</span><br><span class="line">      2.请求失败时要运行的函数</span><br><span class="line">        </span><br><span class="line">**(8) Proxy**         </span><br><span class="line"></span><br><span class="line">    让一个对象代表另一个对象，来处理另一个对象的所有交互。代理可以直接处理请求，接收或发送目标对象数据等。</span><br><span class="line">      </span><br><span class="line">    Proxy的创建：</span><br><span class="line">      new Proxy()；Proxy构造函数接收两个项目：</span><br><span class="line">        1.它将要代理的对象</span><br><span class="line">        2.包含将为被代理对象处理的方法列表的对象(即处理器handler)</span><br><span class="line">        例：</span><br></pre></td></tr></table></figure>
-<pre><code>ar richard = {status: &apos;looking for work&apos;};
-var agent = new Proxy(richard, {});
-agent.status; // returns &apos;looking for work&apos;
-</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">handler对象中的Get Trap(捕获器)和Set Trap;trap是一种函数，如果未定义trap,默认行为会被发送给目标对象</span><br><span class="line">1. Get Trap(捕获器)</span><br><span class="line">  </span><br><span class="line">    get 用来截获对属性的调用,它不会实际地输出属性！</span><br></pre></td></tr></table></figure>
-<pre><code>const richard = {status: &apos;looking for work&apos;};
-const handler = {
-      get(target, propName) {
-          console.log(target); // the `richard` object, not `handler` and not `agent`
-          console.log(propName); // the name of the property the proxy (`agent` in this case) is 
-                                 //checking
-          return target[propName];//可在调用后输出返回的值
-      }
- };
-  const agent = new Proxy(richard, handler);
-  agent.status; // logs out the richard object (not the agent object!) and the name of the property 
-                // being accessed (`status`)
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2. set trap    </span><br><span class="line">      </span><br><span class="line">    set trap 用来截获将更改属性的代码</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Plane &#123;</span><br><span class="line">  constructor(numEngines) &#123;</span><br><span class="line">    this.numEngines = numEngines;</span><br><span class="line">    this.enginesActive = false;</span><br><span class="line">   &#125;</span><br><span class="line">    startEngines() &#123;</span><br><span class="line">      console.log(&apos;starting engines…&apos;);</span><br><span class="line">      this.enginesActive = true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//以下是ES5中的startEngines定义,且ES5中类定义没有构造器函数，像普通函数一样定义</span><br><span class="line">//Plane.prototype.startEngines = function () &#123;</span><br><span class="line">//  console.log(&apos;starting engines...&apos;);</span><br><span class="line">//  this.enginesActive = true;</span><br><span class="line">//&#125;;</span><br></pre></td></tr></table></figure>
+<pre><code>ES6中的子类
+在ES6中，使用super和extends关键字扩展类；
+关键字extends将自己设为子类，要让子类可以访问到父类，需要使用关键字super。
+super既可被用作函数，也可被用作对象，但是super必须在this之前被调用，例：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Tree &#123;</span><br><span class="line">    constructor(size = &apos;10&apos;, leaves = &#123;spring: &apos;green&apos;, summer: &apos;green&apos;, fall: &apos;orange&apos;, winter: null&#125;) &#123;</span><br><span class="line">        this.size = size;</span><br><span class="line">        this.leaves = leaves;</span><br><span class="line">        this.leafColor = null;</span><br><span class="line">    &#125;   </span><br><span class="line">    changeSeason(season) &#123;</span><br><span class="line">        this.leafColor = this.leaves[season];</span><br><span class="line">        if (season === &apos;spring&apos;) &#123;</span><br><span class="line">        this.size += 1;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Maple extends Tree &#123;</span><br><span class="line">    constructor(syrupQty = 15, size, leaves) &#123;</span><br><span class="line">        super(size, leaves);</span><br><span class="line">        this.syrupQty = syrupQty;</span><br><span class="line">    &#125;</span><br><span class="line">    changeSeason(season) &#123;</span><br><span class="line">        super.changeSeason(season);</span><br><span class="line">        if (season === &apos;spring&apos;) &#123;</span><br><span class="line">            this.syrupQty += 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    gatherSyrup() &#123;</span><br><span class="line">        this.syrupQty -= 3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-ES6新增内置功能"><a href="#3-ES6新增内置功能" class="headerlink" title="3.ES6新增内置功能"></a>3.ES6新增内置功能</h2><p><strong>(1) Symbol(标识符)</strong>   </p>
+<pre><code>Symbol 只是一个唯一标识符，最常用于唯一标识对象中的属性(如对象中属性的名字相同但value不同时).但是不能用来访问标识符本身。
+
+Symbol的创建：Symbol(),并添加一个可选的字符串作为其描述。例：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const sym1 = Symbol(&apos;apple&apos;);</span><br><span class="line">console.log(sym1);//Symbol(apple)</span><br></pre></td></tr></table></figure>
+<p><strong>(2) 迭代器协议和可迭代协议(不是ES6内置)</strong></p>
+<pre><code>ES6中新增的两个协议：迭代器协议和可迭代协议
+
+其中，可迭代协议用来定义和自定义对象的迭代行为；工作原理：为了使对象可迭代，它必须实现可迭代接口(即必须包含默认的迭代器
+方法)。
+
+迭代器协议用来定义对象生成一系列值的标准方式；即定义对象如何迭代的流程。工作原理：通过执行.next() 方法来完成这一流程。
+next()方法是无参数函数，返回具有两个属性的对象：value(下个值数据)和done(为false继续迭代，为true达到末尾);
+</code></pre><p><strong>(3) Set(集合、单值、ES6内置可迭代)</strong></p>
+<pre><code>Set()数学意义上的集合，即每个数字都是唯一的，只出现一次；不基于索引，不可单独被访问.
+
+Set创建：new  Set();
+
+Set修改：.add()增加，.delete()删除，.clear()清除
+注：若增加时，条目重复，则Set中不增加(返回Set对象)；若删除时，条目没有，则不删除(成功返回true,失败返回false)
+
+Set使用：
+  .size返回条目数；
+  .has()检查Set中是否存在某个条目，若有返回true，没有返回false
+  .values()返回Set中的SetIterator对象，即所有值；
+  .keys()同.values()
+
+Set循环访问：
+  1.使用SetIterator和.next()访问Set中的每一项
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const iterator = months.values();</span><br><span class="line">iterator.next();</span><br></pre></td></tr></table></figure>
+<pre><code>2.使用for...of循环
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const colors = new Set([&apos;red&apos;, &apos;orange&apos;, &apos;yellow&apos;, &apos;green&apos;, &apos;blue&apos;, &apos;violet&apos;, &apos;brown&apos;, &apos;black&apos;]);</span><br><span class="line">for (const color of colors) &#123;</span><br><span class="line">     console.log(color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>(4) WeakSet(弱集合)</strong>    </p>
+<pre><code>WeakSet和Set的区别：
+  1.WeakSet只能包含对象；
+  2.WeakSet无法迭代，不能循环访问
+  3.WeakSet没有.clear()方法
+
+WeakSet创建：new WeakSet();
+
+垃圾回收：
+JS中创建新值会分配内存，当这些值不需要时，将自动释放内存。该过程就称为垃圾回收
+
+WeakSet 通过专门使用对象作为键值来利用这一点。如果将对象设为 null，则本质上是删除该对象，
+当 JS 的垃圾回收器运行时，该对象之前占用的内存将被释放，以便稍后在程序中使用。
+</code></pre><p><strong>(5) Map(映射)</strong></p>
+<pre><code>Map是一个可以存储键值对的对象，键和值都可以是对象、原始值或二者的结合。
+
+Map创建：new Map();与Set不同，其不能通过值列表创建，要使用.set()方法添加键值。
+
+Map处理：
+    .set()方法，有两个参数，第一个参数是键，用来引用第二个参数即值；
+    .delete()方法移除键值对；
+    .clear()清除所有键值对
+  注：.set()方法添加已存在的，不会报错，但会覆盖；.delete()方法删除不存在的，不变；成功为true，失败为false
+    .has()传入键来检查Map中是否存在该键值对
+    .get()方法传入键，检查Map中的值
+    .keys()&amp;.values()将返回新的迭代器对象MapIterator
+
+Map循环访问：
+  1.使用MapIterator和.next()循环访问每个键或值(取决于使用keys或values)
+  2.使用for...of循环访问键值对
+  3.使用Map的.forEach()访问  
+</code></pre><p><strong>(6) WeakMap(弱映射)</strong>    </p>
+<pre><code>WeakMap和Map的关键区别：
+  1.WeakMap只能包含对象作为键，
+  2.WeakMap无法迭代
+  3.WeakMap没有.clear()方法
+
+WeakMap创建：new WeakMap()
+
+垃圾回收：(同WeakSet)
+</code></pre><p><strong>(7) Promise</strong>   </p>
+<pre><code>promise 使你能够展开一些可以异步完成的工作，并回到常规工作
+
+Promise的创建：
+    new Promise()；创建 promise 时，必须向其提供异步运行的代码(即带初始函数);
+Promise通过向初始函数中传入两个函数来提示请求成功或失败，通常我们将这两个函数称为resolve(成功)和reject(失败)
+
+Promise立即返回对象
+Promise将立即返回一个对象，该对象具有一个.then()方法，我们可以让该方法通知我们promise中的请求成功与否。
+.then()方法会接收两个函数：
+  1.请求成功完成时要运行的函数
+  2.请求失败时要运行的函数
+</code></pre><p><strong>(8) Proxy</strong>         </p>
+<pre><code>让一个对象代表另一个对象，来处理另一个对象的所有交互。代理可以直接处理请求，接收或发送目标对象数据等。
+
+Proxy的创建：
+  new Proxy()；Proxy构造函数接收两个项目：
+    1.它将要代理的对象
+    2.包含将为被代理对象处理的方法列表的对象(即处理器handler)
+    例：
+</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ar richard = &#123;status: &apos;looking for work&apos;&#125;;</span><br><span class="line">var agent = new Proxy(richard, &#123;&#125;);</span><br><span class="line">agent.status; // returns &apos;looking for work&apos;</span><br></pre></td></tr></table></figure>
+<pre><code>handler对象中的Get Trap(捕获器)和Set Trap;trap是一种函数，如果未定义trap,默认行为会被发送给目标对象
+1. Get Trap(捕获器)
+
+    get 用来截获对属性的调用,它不会实际地输出属性！
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">          const richard = &#123;status: &apos;looking for work&apos;&#125;;</span><br><span class="line">          const handler = &#123;</span><br><span class="line">                get(target, propName) &#123;</span><br><span class="line">                    console.log(target); // the `richard` object, not `handler` and not `agent`</span><br><span class="line">                    console.log(propName); // the name of the property the proxy (`agent` in this case) is </span><br><span class="line">                                           //checking</span><br><span class="line">                    return target[propName];//可在调用后输出返回的值</span><br><span class="line">                &#125;</span><br><span class="line">           &#125;;</span><br><span class="line">            const agent = new Proxy(richard, handler);</span><br><span class="line">            agent.status; // logs out the richard object (not the agent object!) and the name of the property </span><br><span class="line">                          // being accessed (`status`)</span><br><span class="line">```   </span><br><span class="line">    2. set trap    </span><br><span class="line">          </span><br><span class="line">        set trap 用来截获将更改属性的代码</span><br></pre></td></tr></table></figure>
 <pre><code>const richard = {status: &apos;looking for work&apos;};
 const handler = {
     set(target, propName, value) {
@@ -296,7 +342,7 @@ iterator.next(&apos;Hello Udacity Student&apos;); // send data into the generato
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://pan-rong.github.io/2018/03/03/ES6notes/" data-id="cjee21ozs0001v0kgucqnpf4g" class="article-share-link">分享到</a>
+        <a data-url="https://pan-rong.github.io/2018/03/03/ES6notes/" data-id="cjee29tre00017kkg5514snlz" class="article-share-link">分享到</a>
       
 
       
