@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://pan-rong.github.io/"/>
-  <updated>2018-03-05T08:23:54.916Z</updated>
+  <updated>2018-03-05T08:45:54.829Z</updated>
   <id>https://pan-rong.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://pan-rong.github.io/2018/02/22/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>https://pan-rong.github.io/2018/02/22/HTML学习笔记/</id>
     <published>2018-02-22T05:34:36.000Z</published>
-    <updated>2018-03-05T08:23:54.916Z</updated>
+    <updated>2018-03-05T08:45:54.829Z</updated>
     
-    <content type="html"><![CDATA[<p>HTML总体介绍及与HTML5的区别<br><a id="more"></a><br>1、BOM<br>    BOM(Browser Object Model)的缩写，及浏览器对象模型，当一个浏览器页面初始化时，会在内存创建一个全局的对象，用以描述当前窗口的属性和状态，这个全局的对象被称为浏览器对象模型，即BOM。</p>]]></content>
+    <content type="html"><![CDATA[<p>HTML总体介绍及与HTML5的区别<br><a id="more"></a><br>1、BOM <img src="/2018/02/22/HTML学习笔记/ban.jpg" alt="logo"><br>    BOM(Browser Object Model)的缩写，及浏览器对象模型，当一个浏览器页面初始化时，会在内存创建一个全局的对象，用以描述当前窗口的属性和状态，这个全局的对象被称为浏览器对象模型，即BOM。</p>]]></content>
     
     <summary type="html">
     
