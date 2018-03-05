@@ -14,12 +14,10 @@
 <meta property="og:site_name" content="Rong">
 <meta property="og:description" content="学习笔记">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://pan-rong.github.io/2018/02/22/HTMLnotes/HTMLnotes/picture2.png">
-<meta property="og:updated_time" content="2018-03-05T09:27:27.031Z">
+<meta property="og:updated_time" content="2018-03-05T09:31:45.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML学习笔记">
 <meta name="twitter:description" content="学习笔记">
-<meta name="twitter:image" content="https://pan-rong.github.io/2018/02/22/HTMLnotes/HTMLnotes/picture2.png">
   
     <link rel="alternative" href="/atom.xml" title="Rong" type="application/atom+xml">
   
@@ -84,16 +82,6 @@
   </div>
   <div class="article-inner">
     
-<div class="article-gallery">
-  <div class="article-gallery-photos">
-    
-      <a class="article-gallery-img fancybox" href="/HTMLnotes/picture2.png" rel="gallery_cjee0vhyp0000q0kgcwfl2zzz">
-        <img src="/HTMLnotes/picture2.png" itemprop="image">
-      </a>
-    
-  </div>
-</div>
-
     
       <header class="article-header">
         
@@ -107,7 +95,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>HTML总体介绍及与HTML5的区别 <a href="https://www.cnblogs.com/zhangyongl/p/6154981.html#undefined" target="_blank" rel="noopener">参考1</a><br><a href="http://www.duanliang920.com/learn/web/html5/230.html" target="_blank" rel="noopener">参考2</a><br><a id="more"></a><br><strong>1、BOM</strong><br>    BOM(Browser Object Model)的缩写，及浏览器对象模型，当一个浏览器页面初始化时，会在内存创建一个全局的对象，用以描述当前窗口的属性和状态，这个全局的对象被称为浏览器对象模型，即BOM。BOM的核心对象是window,window对象也是BOM的顶级对象，其中包<br>    含了浏览器6个核心模块(有人说是5个,不包括frames-HTML子框架).</p>
+        <p>HTML总体介绍及与HTML5的区别 <a href="https://www.cnblogs.com/zhangyongl/p/6154981.html#undefined" target="_blank" rel="noopener">参考1</a> <a href="http://www.duanliang920.com/learn/web/html5/230.html" target="_blank" rel="noopener">参考2</a><br><a id="more"></a><br><strong>1、BOM</strong><br>    BOM(Browser Object Model)的缩写，及浏览器对象模型，当一个浏览器页面初始化时，会在内存创建一个全局的对象，用以描述当前窗口的属性和状态，这个全局的对象被称为浏览器对象模型，即BOM。BOM的核心对象是window,window对象也是BOM的顶级对象，其中包<br>    含了浏览器6个核心模块(有人说是5个,不包括frames-HTML子框架).</p>
 <pre><code>(1) Document(文档对象)
 (2) frames-HTML子框架
 (3) history
@@ -121,27 +109,26 @@
 <p><strong>(5) navigator</strong><br>    用来描述浏览器本身，包括浏览器的名称、版本、语言、系统平台，用户特性字符串等</p>
 <p><strong>(6) screen</strong><br>    提供了浏览器显示屏幕的相关属性，如：显示屏的宽度和高度，可用宽度和高度</p>
 <p><strong>2、DOM</strong><br>    DOM将HTML和XML文档映射成一个由不同节点组成的树型结构，其核心是document</p>
-<p><strong>3、事件系统</strong><br>    事件是用户与页面交互的基础.DOM2.0模型将事件处理流程分为三个阶段：事件捕获阶段、事件处理阶段、事件冒泡阶段<br>    (1)事件捕获：当用户触发点击事件后，顶层对象document就会发出一个事件流，从最外层DOM节点向目标元素节点传递，最终到达目标元素<br>    (2)事件处理：当到达目标元素之后，执行目标元素绑定的处理函数。如果没有绑定监听函数，则不做任何处理。<br>    (3)事件冒泡：事件流从目标元素开始，向最外层DOM节点传递，途中如果有节点绑定了事件处理函数，这些函数将会被执行；</p>
-<pre><code>利用事件冒泡原理，可以实现事件委托，所谓委托，就是在父元素上添加监听器，用以监听和处理子元素的事件，避免重复为子元素绑定相同的事件，当目标元素的事件被触发以后，这个事件就从目标元素开始，向最外层元素传递，最终冒泡到父元素上，父元素在通过event.targe获取到这个目标元素(之前作品中用this也可以)。这样做的好处是，父元素只需绑定一个事件监听，即可以对所有子元素的事件进行处理，从而减少不必要的事件绑定，对页面性能有一定的提升。
-</code></pre><p><strong>4、HTML解析过程</strong><br>    (1)浏览器加载html文件<br>    (2)渲染并解析HTML标签，生成DOM节点<br>    (3)渲染并解析CSS样式，生成CSSOM<br>    (4)js脚本处理<br>    (5)将以上打包渲染到浏览器上</p>
+<p><strong>3、事件系统</strong><br>事件是用户与页面交互的基础.DOM2.0模型将事件处理流程分为三个阶段：事件捕获阶段、事件处理阶段、事件冒泡阶段<br>    (1)事件捕获：当用户触发点击事件后，顶层对象document就会发出一个事件流，从最外层DOM节点向目标元素节点传递，最终到达目标元素<br>    (2)事件处理：当到达目标元素之后，执行目标元素绑定的处理函数。如果没有绑定监听函数，则不做任何处理。<br>    (3)事件冒泡：事件流从目标元素开始，向最外层DOM节点传递，途中如果有节点绑定了事件处理函数，这些函数将会被执行；</p>
+<p>利用事件冒泡原理，可以实现事件委托，所谓委托，就是在父元素上添加监听器，用以监听和处理子元素的事件，避免重复为子元素绑定相同的事件，当目标元素的事件被触发以后，这个事件就从目标元素开始，向最外层元素传递，最终冒泡到父元素上，父元素在通过event.targe获取到这个目标元素(之前作品中用this也可以)。这样做的好处是，父元素只需绑定一个事件监听，即可以对所有子元素的事件进行处理，从而减少不必要的事件绑定，对页面性能有一定的提升。</p>
+<p><strong>4、HTML解析过程</strong><br>    (1)浏览器加载html文件<br>    (2)渲染并解析HTML标签，生成DOM节点<br>    (3)渲染并解析CSS样式，生成CSSOM<br>    (4)js脚本处理<br>    (5)将以上打包渲染到浏览器上</p>
 <p><strong>5、重绘和回流</strong><br>    回流：当渲染树中的一部分(或全部)因为元素的规模尺寸、布局、隐藏(主要是display)等改变而需要重新构建；<br>    重绘：当渲染树中的一些元素需要更新属性，而这些属性只是影响元素的外观、风格；而不会影响布局时，就叫重绘；<br>    由此可知，回流必会引起重绘，而重绘不一定会引起回流</p>
 <pre><code>注：transform操作不会引起重绘和回流，是一种高效率的渲染。因为transform属于合成属性，对合成属性进行transition或animation动画时将会创建一个合成层，这使得动画元素在一个独立的层中进行渲染，当元素的内容没有发生改变，就不会重绘和回流。
 </code></pre><p><strong>6、本地存储</strong><br><strong>(1) cookie</strong><br>    最原始方式，数据以键值对形式保存，可设置过期时间；但不适合大量数据存储；因为每请求一次页面，cookie都会发送给    服务器，因此被限制在4K左右(因浏览器而异)，超出即被忽略，且永不会被设置.</p>
 <p><strong>(2) localStorage和sessionStorage</strong><br>    这是HTML5提供的两种方式，都是以键值对的形式来存储数据；前者是永久存储，后者的存储仅限于浏览器会话(session)。即当浏览器窗口关闭后，sessionStorage中的数据被清除。</p>
-<pre><code>localStorage的存储空间约5M，但在浏览器隐私模式下不可读取，数据超出时会抛异常。
-</code></pre><p><strong>7、浏览器缓存机制</strong><br>    浏览器缓存机制是通过HTTP协议头里的Cache-Control(或Expires)和Last-Modified(或Etag)等字段来控制文件缓存的机制；Cache-Control用于控制文本在本地缓存有效时长。最常见的，如Cache-Control:max-age=600,表示文件在本地应该缓存，且有效时长为600s.</p>
-<pre><code>Last-Modified是标识文件在服务器上的最新更新时间；若到期，且没有修改，则服务器则返回304告诉浏览器继续用该缓存数据。
-</code></pre><p><strong>8、History</strong><br>    用户访问网页的历史记录通常会被保存在一个类似于栈的对象中，即history对象，点击返回就出栈，跳下一页就入栈。</p>
+<p>localStorage的存储空间约5M，但在浏览器隐私模式下不可读取，数据超出时会抛异常。</p>
+<p><strong>7、浏览器缓存机制</strong><br>    浏览器缓存机制是通过HTTP协议头里的Cache-Control(或Expires)和Last-Modified(或Etag)等字段来控制文件缓存的机制；Cache-Control用于控制文本在本地缓存有效时长。最常见的，如Cache-Control:max-age=600,表示文件在本地应该缓存，且有效时长为600s.</p>
+<p>Last-Modified是标识文件在服务器上的最新更新时间；若到期，且没有修改，则服务器则返回304告诉浏览器继续用该缓存数据。</p>
+<p><strong>8、History</strong><br>    用户访问网页的历史记录通常会被保存在一个类似于栈的对象中，即history对象，点击返回就出栈，跳下一页就入栈。</p>
 <p><strong>9、Web语义化和SEO</strong><br>    Web语义化是指使用语义恰当的标签，是页面有良好的结构，页面元素有含义，能够让人和搜索引擎都容易理解。</p>
-<pre><code>SEO是指了解搜索引擎自然排名机制的基础之上，对网站进行内部及外部的调整优化，改进网站在搜索引擎中关键词的自然排名，获得更多的展现量，吸引更多目标客户点击访问网站，从而达到互联网营销及品牌建设的目标。
+<p>SEO是指了解搜索引擎自然排名机制的基础之上，对网站进行内部及外部的调整优化，改进网站在搜索引擎中关键词的自然排名，获得更多的展现量，吸引更多目标客户点击访问网站，从而达到互联网营销及品牌建设的目标。</p>
+<p>搜索引擎通过爬虫技术获取的页面就是由一堆html标签组成的代码，人可以通过可视化的方式来判断页面上哪些内容是重点，而机器不行。但搜索引擎会根据标签的含义来判断内容的权重，因此，在合适的位置使用恰当的标签，使整个页面的语义明确，结构清晰，搜索引擎才能正确识别页面中重要内容，并予以较高的权值。</p>
 
-搜索引擎通过爬虫技术获取的页面就是由一堆html标签组成的代码，人可以通过可视化的方式来判断页面上哪些内容是重点，而机器不行。但搜索引擎会根据标签的含义来判断内容的权重，因此，在合适的位置使用恰当的标签，使整个页面的语义明确，结构清晰，搜索引擎才能正确识别页面中重要内容，并予以较高的权值。
-</code></pre>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://pan-rong.github.io/2018/02/22/HTMLnotes/" data-id="cjee0vhyp0000q0kgcwfl2zzz" class="article-share-link">分享到</a>
+        <a data-url="https://pan-rong.github.io/2018/02/22/HTMLnotes/" data-id="cjee10xt60000s0kgesk6u6rj" class="article-share-link">分享到</a>
       
 
       
