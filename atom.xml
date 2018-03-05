@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://pan-rong.github.io/"/>
-  <updated>2018-02-22T08:15:19.109Z</updated>
+  <updated>2018-03-05T08:17:36.853Z</updated>
   <id>https://pan-rong.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hello</title>
+    <title>HTML学习笔记</title>
     <link href="https://pan-rong.github.io/2018/02/22/hello/"/>
     <id>https://pan-rong.github.io/2018/02/22/hello/</id>
     <published>2018-02-22T05:34:36.000Z</published>
-    <updated>2018-02-22T08:15:19.109Z</updated>
+    <updated>2018-03-05T08:17:36.853Z</updated>
     
     <content type="html"><![CDATA[<p>这是一个测试页面，先看看编写的效果，熟悉下操作<br><a id="more"></a><br>这个内容应该是点击more是才看的到的。</p>]]></content>
     
