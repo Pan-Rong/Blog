@@ -4,19 +4,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>NPM学习笔记 | Rong</title>
+  <title>JS获取页面、屏幕尺寸 | Rong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="学习笔记">
-<meta name="keywords" content="NPM">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NPM学习笔记">
-<meta property="og:url" content="https://pan-rong.github.io/2018/03/05/NPMnotes/index.html">
+<meta property="og:title" content="JS获取页面、屏幕尺寸">
+<meta property="og:url" content="https://pan-rong.github.io/2018/03/07/JS获取屏幕尺寸/index.html">
 <meta property="og:site_name" content="Rong">
 <meta property="og:description" content="学习笔记">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-05T10:43:35.774Z">
+<meta property="og:updated_time" content="2018-03-07T03:59:57.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NPM学习笔记">
+<meta name="twitter:title" content="JS获取页面、屏幕尺寸">
 <meta name="twitter:description" content="学习笔记">
   
     <link rel="alternative" href="/atom.xml" title="Rong" type="application/atom+xml">
@@ -73,10 +73,10 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-NPMnotes" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-JS获取屏幕尺寸" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/03/05/NPMnotes/" class="article-date">
-  <time datetime="2018-03-05T09:40:21.000Z" itemprop="datePublished">2018-03-05</time>
+    <a href="/2018/03/07/JS获取屏幕尺寸/" class="article-date">
+  <time datetime="2018-03-07T02:58:21.000Z" itemprop="datePublished">2018-03-07</time>
 </a>
     
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      NPM学习笔记
+      JS获取页面、屏幕尺寸
     </h1>
   
 
@@ -95,35 +95,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>NPM使用介绍(window 系统)<a href="https://www.npmjs.com/" target="_blank" rel="noopener">官网</a><br><a id="more"></a></p>
-<h1 id="NPM使用介绍-window-系统-官网"><a href="#NPM使用介绍-window-系统-官网" class="headerlink" title="NPM使用介绍(window 系统)官网"></a>NPM使用介绍(window 系统)<a href="https://www.npmjs.com/" target="_blank" rel="noopener">官网</a></h1><h2 id="NPM的使用场景"><a href="#NPM的使用场景" class="headerlink" title="NPM的使用场景"></a>NPM的使用场景</h2><p>NPM随同Node JS一起安装的包管理工具，能解决Node JS代码部署上的很多问题，常见的应用场景：</p>
-<p>(1) 允许用户从NPM服务器下载别人编写的第三方包到本地使用</p>
-<p>(2) 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用</p>
-<p>(3) 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用</p>
-<p>首先测试随Node JS一起安装的NPM版本，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure></p>
-<p>升级该NPM版本的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g npm</span><br></pre></td></tr></table></figure></p>
-<p>其次，查看程序的默认配置，方便以后找文件：</p>
-<p>npm config 的使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm config set &lt;key&gt; &lt;value&gt;</span><br><span class="line">npm config get [&lt;key&gt;]</span><br><span class="line">npm config delete &lt;key&gt;</span><br><span class="line">npm config list [--json]</span><br><span class="line">npm config edit</span><br><span class="line">npm set &lt;key&gt; &lt;value&gt;</span><br><span class="line">npm get [&lt;key&gt;]</span><br></pre></td></tr></table></figure></p>
-<p>使用以下命令可以看到常用的配置列表，如（默认文件存储位置和缓存位置，）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config list</span><br></pre></td></tr></table></figure></p>
-<p>一般情况下，npm的默认文件位置和缓存位置都在C盘，可以修改，例：修改默认配置的方法(注意是双斜杠)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;F:\\NPM\\prefix&quot;</span><br></pre></td></tr></table></figure></p>
-<p>上述配置后，就将文件的存储位置改了，可以用以下代码验证，是否成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get prefix</span><br></pre></td></tr></table></figure></p>
-<p>然后就可以安装你想要的模块了(若不需要修改默认路径，则可以不用上述操作)</p>
-<p>在命令窗口，打开子文件夹的方法“cd 子文件夹”;</p>
-<p>返回上层文件夹用“../”;</p>
+        <p>JS获取页面、屏幕尺寸<a href="http://www.cnblogs.com/rushoooooo/archive/2011/05/01/2033670.html" target="_blank" rel="noopener">参考原文</a><br><a id="more"></a><br>在设计网页时，经常会用到获取元素的位置信息，下面来说下盒子模型，从外往内一次为：<code>offset</code>、<code>margin</code>、<code>border</code>、<code>padding</code>、<code>content</code>；</p>
+<p>注：盒子的宽度和高度不受margin、border、padding的设置而变化</p>
+<p><strong>以下是介绍JS获取屏幕、浏览器窗口、页面等的高度、宽度大小；</strong><br>(1) 网页可见区域宽：<code>document.body.clientWidth</code>;(随屏幕大小变化)<br>(2) 网页可见区域高：<code>document.body.clientHeight</code>;(随可见屏幕高度变化)<br>(3) 网页可见区域宽：<code>document.body.offsetWidth</code>(包括边线的宽,但不包括body的margin)<br>(4) 网页可见区域高：<code>document.body.offsetHeight</code> (包括边线的宽,但不包括body的margin)<br>(5) 网页正文全文宽：<code>document.body.scrollWidth</code> (即html所包含的全部宽度，若设置自适应，就是自适应的宽度)<br>(6) 网页正文全文高：<code>document.body.scrollHeight</code>(即html所包含的全部高度，若设置自适应，就是自适应的高度)<br>(7) 网页被卷去的高：<code>document.body.scrollTop</code>(看滚轮的位置)<br>(8) 网页被卷去的左：<code>document.body.scrollLeft</code>(看滚轮的位置)<br>(9) 网页正文部分上：<code>window.screenTop</code>(即你打开的网页距离你电脑屏幕的上方的距离)<br>(10) 网页正文部分左：<code>window.screenLeft</code>(同上，但是与左边的距离)<br>(11) 屏幕分辨率的高：<code>window.screen.height</code> (屏幕的高度，随设备变化)<br>(12) 屏幕分辨率的宽：<code>window.screen.width</code>(屏幕的宽度，随设备变化)<br>(13) 屏幕可用工作区高度：<code>window.screen.availHeight</code><br>(14) 屏幕可用工作区宽度：<code>window.screen.availWidth</code></p>
+<p><strong>HTML精确定位:<code>scrollLeft</code>,<code>scrollWidth</code>,<code>clientWidth</code>,<code>offsetWidth</code></strong><br><code>scrollHeight</code>: 获取对象的滚动高度。<br><code>scrollLeft</code>:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离<br><code>scrollTop</code>:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离<br><code>scrollWidth</code>:获取对象的滚动宽度<br><code>offsetHeight</code>:获取对象相对于版面或由父坐标<code>offsetParent</code>属性指定的父坐标的高度<br><code>offsetLeft</code>:获取对象相对于版面或由<code>offsetParent</code>属性指定的父坐标的计算左侧位置<br><code>offsetTop</code>:获取对象相对于版面或由<code>offsetTop</code>属性指定的父坐标的计算顶端位置<br><code>event.clientX</code> 相对文档的水平坐标<br><code>event.clientY</code> 相对文档的垂直坐标<br><code>event.offsetX</code> 相对容器的水平坐标<br><code>event.offsetY</code> 相对容器的垂直坐标<br><code>document.documentElement.scrollTop</code> 垂直方向滚动的值<br><code>event.clientX+document.documentElement.scrollTop</code> 相对文档的水平座标+垂直方向滚动的量</p>
+<p><strong>IE，FireFox 差异如下：</strong><br><strong><em>IE6.0、FF1.06+：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clientWidth = width + padding</span><br><span class="line">clientHeight = height + padding</span><br><span class="line">offsetWidth = width + padding + border</span><br><span class="line">offsetHeight = height + padding + border</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>IE5.0/5.5：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clientWidth = width - border</span><br><span class="line">clientHeight = height - border</span><br><span class="line">offsetWidth = width</span><br><span class="line">offsetHeight = height</span><br></pre></td></tr></table></figure></p>
+<p>注：<br>(1) CSS中的<code>margin</code>属性，与<code>clientWidth</code>、<code>offsetWidth</code>、<code>clientHeight</code>、<code>offsetHeight</code>均无关<br>(2) <code>div.style.top</code>：相对于<code>div</code>所在的元件的顶部距离</p>
+<p><strong>技术要点</strong><br>本节代码主要使用了<code>Document</code>对象关于窗口的一些属性，这些属性的主要功能和用法如下。<br>要得到窗口的尺寸，对于不同的浏览器，需要使用不同的属性和方法：若要检测窗口的真实尺寸，在Netscape下需要使用<code>Window</code>的属性；在 <code>IE</code>下需要深入<code>Document</code>内部对<code>body</code>进行检测；在<code>DOM</code>环境下，若要得到窗口的尺寸，需要注意根元素的尺寸，而不是元素。<br><code>Window</code>对象的<code>innerWidth</code>属性包含当前窗口的内部宽度。<code>Window</code>对象的<code>innerHeight</code>属性包含当前窗口的内部高度。<br><code>Document</code>对象的<code>body</code>属性对应<code>HTML</code>文档的标签。<code>Document</code>对象的<code>documentElement</code>属性则表示<code>HTML</code>文档的根节点。<br><code>document.body.clientHeight</code>表示<code>HTML</code>文档所在窗口的当前高度。<code>document.body. clientWidth</code>表示<code>HTML</code>文档所在窗口的当前宽度。<br>浏览器大小调整事件<br><code>window.onresize=funName</code>;//当浏览器大小发生变化时调用<code>funName</code>函数</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://pan-rong.github.io/2018/03/05/NPMnotes/" data-id="cjegk729p0005z4kgys8bs310" class="article-share-link">分享到</a>
+        <a data-url="https://pan-rong.github.io/2018/03/07/JS获取屏幕尺寸/" data-id="cjegk726z0000z4kgw3ojr5ms" class="article-share-link">分享到</a>
       
 
       
-        <a href="https://pan-rong.github.io/2018/03/05/NPMnotes/#disqus_thread" class="article-comment-link">评论</a>
+        <a href="https://pan-rong.github.io/2018/03/07/JS获取屏幕尺寸/#disqus_thread" class="article-comment-link">评论</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NPM/">NPM</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -131,19 +124,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/03/05/跨域请求整理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          跨域请求整理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/03/ES6notes/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/05/跨域请求整理/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">ES6学习笔记</div>
+      <div class="article-nav-title">跨域请求整理</div>
     </a>
   
 </nav>
@@ -276,7 +260,7 @@
 <script>
   var disqus_shortname = 'Pan-Rong';
   
-  var disqus_url = 'https://pan-rong.github.io/2018/03/05/NPMnotes/';
+  var disqus_url = 'https://pan-rong.github.io/2018/03/07/JS获取屏幕尺寸/';
   
   (function(){
     var dsq = document.createElement('script');

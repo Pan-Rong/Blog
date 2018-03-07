@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://pan-rong.github.io/"/>
-  <updated>2018-03-05T11:16:02.570Z</updated>
+  <updated>2018-03-07T03:59:57.493Z</updated>
   <id>https://pan-rong.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS获取页面、屏幕尺寸</title>
+    <link href="https://pan-rong.github.io/2018/03/07/JS%E8%8E%B7%E5%8F%96%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8/"/>
+    <id>https://pan-rong.github.io/2018/03/07/JS获取屏幕尺寸/</id>
+    <published>2018-03-07T02:58:21.000Z</published>
+    <updated>2018-03-07T03:59:57.493Z</updated>
+    
+    <content type="html"><![CDATA[<p>JS获取页面、屏幕尺寸<a href="http://www.cnblogs.com/rushoooooo/archive/2011/05/01/2033670.html" target="_blank" rel="noopener">参考原文</a><br><a id="more"></a><br>在设计网页时，经常会用到获取元素的位置信息，下面来说下盒子模型，从外往内一次为：<code>offset</code>、<code>margin</code>、<code>border</code>、<code>padding</code>、<code>content</code>；</p><p>注：盒子的宽度和高度不受margin、border、padding的设置而变化</p><p><strong>以下是介绍JS获取屏幕、浏览器窗口、页面等的高度、宽度大小；</strong><br>(1) 网页可见区域宽：<code>document.body.clientWidth</code>;(随屏幕大小变化)<br>(2) 网页可见区域高：<code>document.body.clientHeight</code>;(随可见屏幕高度变化)<br>(3) 网页可见区域宽：<code>document.body.offsetWidth</code>(包括边线的宽,但不包括body的margin)<br>(4) 网页可见区域高：<code>document.body.offsetHeight</code> (包括边线的宽,但不包括body的margin)<br>(5) 网页正文全文宽：<code>document.body.scrollWidth</code> (即html所包含的全部宽度，若设置自适应，就是自适应的宽度)<br>(6) 网页正文全文高：<code>document.body.scrollHeight</code>(即html所包含的全部高度，若设置自适应，就是自适应的高度)<br>(7) 网页被卷去的高：<code>document.body.scrollTop</code>(看滚轮的位置)<br>(8) 网页被卷去的左：<code>document.body.scrollLeft</code>(看滚轮的位置)<br>(9) 网页正文部分上：<code>window.screenTop</code>(即你打开的网页距离你电脑屏幕的上方的距离)<br>(10) 网页正文部分左：<code>window.screenLeft</code>(同上，但是与左边的距离)<br>(11) 屏幕分辨率的高：<code>window.screen.height</code> (屏幕的高度，随设备变化)<br>(12) 屏幕分辨率的宽：<code>window.screen.width</code>(屏幕的宽度，随设备变化)<br>(13) 屏幕可用工作区高度：<code>window.screen.availHeight</code><br>(14) 屏幕可用工作区宽度：<code>window.screen.availWidth</code></p><p><strong>HTML精确定位:<code>scrollLeft</code>,<code>scrollWidth</code>,<code>clientWidth</code>,<code>offsetWidth</code></strong><br><code>scrollHeight</code>: 获取对象的滚动高度。<br><code>scrollLeft</code>:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离<br><code>scrollTop</code>:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离<br><code>scrollWidth</code>:获取对象的滚动宽度<br><code>offsetHeight</code>:获取对象相对于版面或由父坐标<code>offsetParent</code>属性指定的父坐标的高度<br><code>offsetLeft</code>:获取对象相对于版面或由<code>offsetParent</code>属性指定的父坐标的计算左侧位置<br><code>offsetTop</code>:获取对象相对于版面或由<code>offsetTop</code>属性指定的父坐标的计算顶端位置<br><code>event.clientX</code> 相对文档的水平坐标<br><code>event.clientY</code> 相对文档的垂直坐标<br><code>event.offsetX</code> 相对容器的水平坐标<br><code>event.offsetY</code> 相对容器的垂直坐标<br><code>document.documentElement.scrollTop</code> 垂直方向滚动的值<br><code>event.clientX+document.documentElement.scrollTop</code> 相对文档的水平座标+垂直方向滚动的量</p><p><strong>IE，FireFox 差异如下：</strong><br><strong><em>IE6.0、FF1.06+：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clientWidth = width + padding</span><br><span class="line">clientHeight = height + padding</span><br><span class="line">offsetWidth = width + padding + border</span><br><span class="line">offsetHeight = height + padding + border</span><br></pre></td></tr></table></figure></p><p><strong><em>IE5.0/5.5：</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clientWidth = width - border</span><br><span class="line">clientHeight = height - border</span><br><span class="line">offsetWidth = width</span><br><span class="line">offsetHeight = height</span><br></pre></td></tr></table></figure></p><p>注：<br>(1) CSS中的<code>margin</code>属性，与<code>clientWidth</code>、<code>offsetWidth</code>、<code>clientHeight</code>、<code>offsetHeight</code>均无关<br>(2) <code>div.style.top</code>：相对于<code>div</code>所在的元件的顶部距离</p><p><strong>技术要点</strong><br>本节代码主要使用了<code>Document</code>对象关于窗口的一些属性，这些属性的主要功能和用法如下。<br>要得到窗口的尺寸，对于不同的浏览器，需要使用不同的属性和方法：若要检测窗口的真实尺寸，在Netscape下需要使用<code>Window</code>的属性；在 <code>IE</code>下需要深入<code>Document</code>内部对<code>body</code>进行检测；在<code>DOM</code>环境下，若要得到窗口的尺寸，需要注意根元素的尺寸，而不是元素。<br><code>Window</code>对象的<code>innerWidth</code>属性包含当前窗口的内部宽度。<code>Window</code>对象的<code>innerHeight</code>属性包含当前窗口的内部高度。<br><code>Document</code>对象的<code>body</code>属性对应<code>HTML</code>文档的标签。<code>Document</code>对象的<code>documentElement</code>属性则表示<code>HTML</code>文档的根节点。<br><code>document.body.clientHeight</code>表示<code>HTML</code>文档所在窗口的当前高度。<code>document.body. clientWidth</code>表示<code>HTML</code>文档所在窗口的当前宽度。<br>浏览器大小调整事件<br><code>window.onresize=funName</code>;//当浏览器大小发生变化时调用<code>funName</code>函数</p>]]></content>
+    
+    <summary type="html">
+    
+      学习笔记
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://pan-rong.github.io/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>跨域请求整理</title>
