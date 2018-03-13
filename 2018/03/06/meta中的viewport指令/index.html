@@ -4,18 +4,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Rong</title>
+  <title>meta中的viewport指令 | Rong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习、总结、分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rong">
-<meta property="og:url" content="https://pan-rong.github.io/archives/index.html">
+  <meta name="description" content="学习笔记">
+<meta name="keywords" content="javascript,meta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="meta中的viewport指令">
+<meta property="og:url" content="https://pan-rong.github.io/2018/03/06/meta中的viewport指令/index.html">
 <meta property="og:site_name" content="Rong">
-<meta property="og:description" content="学习、总结、分享">
+<meta property="og:description" content="学习笔记">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-06T07:15:26.410Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rong">
-<meta name="twitter:description" content="学习、总结、分享">
+<meta name="twitter:title" content="meta中的viewport指令">
+<meta name="twitter:description" content="学习笔记">
   
     <link rel="alternative" href="/atom.xml" title="Rong" type="application/atom+xml">
   
@@ -71,211 +73,84 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/11/Flex布局/" class="archive-article-date">
-  <time datetime="2018-03-11T09:09:03.000Z" itemprop="datePublished">3月 11</time>
+      <section id="main"><article id="post-meta中的viewport指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/06/meta中的viewport指令/" class="article-date">
+  <time datetime="2018-03-06T06:53:10.000Z" itemprop="datePublished">2018-03-06</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/11/Flex布局/">Flex布局</a>
+    <h1 class="article-title" itemprop="name">
+      meta中的viewport指令
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/07/JS获取屏幕尺寸/" class="archive-article-date">
-  <time datetime="2018-03-07T02:58:21.000Z" itemprop="datePublished">3月 7</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/07/JS获取屏幕尺寸/">JS获取页面、屏幕尺寸</a>
-    </h1>
-  
+        <p>#meta中的viewport指令<a href="http://www.cnblogs.com/ubunoon/archive/2012/07/27/2612243.html" target="_blank" rel="noopener">参考</a><br><a id="more"></a><br>我们常常在html的head里看到如下代码行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>viewport<meta>标记用于指定用户是否可以缩放Web页面，同时还表示文档针对移动设备进行了优化。若选择可以缩放Web页面，需要写明缩放比例。</p>
+<p>viewport<meta>标记的content值是由指令及其值组成的，以逗号分隔的列表。</p>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=”viewport” content=”width=240, height=320, user-scalable=yes, initial-scale=2.5, maximum-scale=5.0, minimun-scale=1.0”&gt;</span><br></pre></td></tr></table></figure></p>
+<p><code>width</code>和<code>height</code>指令分别指定视区的逻辑宽度和高度。他们的值要么是以像素为单位的数字，要么是一个特殊的标记符号。<code>width</code>指令使用<code>device-width</code>标记可以指示视区宽度应为设备的屏幕宽度。类似地<code>height</code>指令使用<code>device-height</code>标记指示视区高度为设备的屏幕高度。</p>
+<p><code>user-scalable</code>指令指定用户是否可以缩放视区，即缩放<code>Web</code>页面的视图。值为<code>yes</code>时允许用户进行缩放，值为<code>no</code>时不允许缩放.</p>
+<p><code>initial-scale</code>指令用于设置<code>Web</code>页面的初始缩放比例。默认的初始缩放比例值因智能手机浏览器的不同而有所差异。通常情况下设备会在浏览器中呈现出整个<code>Web</code>页面，设为<code>1.0</code>则将显示未经缩放的<code>Web</code>文档.</p>
+<p><code>maximum-scale</code>和<code>minimum-scale</code>指令用于设置用户对<code>Web</code>页面缩放比例的限制。值的范围为<code>0.25</code>至<code>10.0</code>之间。与<code>initial-scale</code>相同，这些指令的值是应用于视区内容的缩放比例.</p>
+<p>所有智能手机浏览器都支持<code>ViewPort &lt;meta&gt;</code>标记的<code>width</code>和<code>user-scalabel</code>指令。但是<code>Opera Mobile</code>不使用<code>user-scalable</code>指令，而是主张用户应始终保留在移动浏览器中缩放<code>Web</code>页面的能力.</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/06/CSS中float/" class="archive-article-date">
-  <time datetime="2018-03-06T07:47:10.000Z" itemprop="datePublished">3月 6</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/06/CSS中float/">CSS布局讲解float、flex使用</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/06/meta标签-IE兼容/" class="archive-article-date">
-  <time datetime="2018-03-06T07:16:10.000Z" itemprop="datePublished">3月 6</time>
-</a>
+    </div>
+    <footer class="article-footer">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/06/meta标签-IE兼容/">meta标签-IE兼容</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/06/meta中的viewport指令/" class="archive-article-date">
-  <time datetime="2018-03-06T06:53:10.000Z" itemprop="datePublished">3月 6</time>
-</a>
+        <a data-url="https://pan-rong.github.io/2018/03/06/meta中的viewport指令/" data-id="cjeoy9dfz000bzokg7k4rb7nh" class="article-share-link">分享到</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/06/meta中的viewport指令/">meta中的viewport指令</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/05/跨域请求整理/" class="archive-article-date">
-  <time datetime="2018-03-05T10:55:20.000Z" itemprop="datePublished">3月 5</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/05/跨域请求整理/">跨域请求整理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/05/NPMnotes/" class="archive-article-date">
-  <time datetime="2018-03-05T09:40:21.000Z" itemprop="datePublished">3月 5</time>
-</a>
+        <a href="https://pan-rong.github.io/2018/03/06/meta中的viewport指令/#disqus_thread" class="article-comment-link">评论</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/05/NPMnotes/">NPM学习笔记</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/03/ES6notes/" class="archive-article-date">
-  <time datetime="2018-03-03T06:30:02.000Z" itemprop="datePublished">3月 3</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/03/ES6notes/">ES6学习笔记</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meta/">meta</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/01/CSSnotes/" class="archive-article-date">
-  <time datetime="2018-03-01T02:34:36.000Z" itemprop="datePublished">3月 1</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/01/CSSnotes/">CSS学习笔记</a>
-    </h1>
+    <a href="/2018/03/06/meta标签-IE兼容/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          meta标签-IE兼容
+        
+      </div>
+    </a>
   
+  
+    <a href="/2018/03/05/跨域请求整理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">跨域请求整理</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/02/22/HTMLnotes/" class="archive-article-date">
-  <time datetime="2018-02-22T05:34:36.000Z" itemprop="datePublished">2月 22</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/22/HTMLnotes/">HTML学习笔记</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
+  <section id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
 </section>
       
       <aside id="sidebar">
@@ -395,11 +270,13 @@
 <script>
   var disqus_shortname = 'Pan-Rong';
   
+  var disqus_url = 'https://pan-rong.github.io/2018/03/06/meta中的viewport指令/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

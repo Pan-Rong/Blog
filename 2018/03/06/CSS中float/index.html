@@ -4,19 +4,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>NPM学习笔记 | Rong</title>
+  <title>CSS布局讲解float、flex使用 | Rong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="学习笔记">
-<meta name="keywords" content="NPM">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NPM学习笔记">
-<meta property="og:url" content="https://pan-rong.github.io/2018/03/05/NPMnotes/index.html">
+<meta property="og:title" content="CSS布局讲解float、flex使用">
+<meta property="og:url" content="https://pan-rong.github.io/2018/03/06/CSS中float/index.html">
 <meta property="og:site_name" content="Rong">
 <meta property="og:description" content="学习笔记">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-05T10:43:35.774Z">
+<meta property="og:updated_time" content="2018-03-06T08:12:12.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NPM学习笔记">
+<meta name="twitter:title" content="CSS布局讲解float、flex使用">
 <meta name="twitter:description" content="学习笔记">
   
     <link rel="alternative" href="/atom.xml" title="Rong" type="application/atom+xml">
@@ -73,10 +73,10 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-NPMnotes" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-CSS中float" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/03/05/NPMnotes/" class="article-date">
-  <time datetime="2018-03-05T09:40:21.000Z" itemprop="datePublished">2018-03-05</time>
+    <a href="/2018/03/06/CSS中float/" class="article-date">
+  <time datetime="2018-03-06T07:47:10.000Z" itemprop="datePublished">2018-03-06</time>
 </a>
     
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      NPM学习笔记
+      CSS布局讲解float、flex使用
     </h1>
   
 
@@ -95,35 +95,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>NPM使用介绍(window 系统)<a href="https://www.npmjs.com/" target="_blank" rel="noopener">官网</a><br><a id="more"></a></p>
-<h1 id="NPM使用介绍-window-系统-官网"><a href="#NPM使用介绍-window-系统-官网" class="headerlink" title="NPM使用介绍(window 系统)官网"></a>NPM使用介绍(window 系统)<a href="https://www.npmjs.com/" target="_blank" rel="noopener">官网</a></h1><h2 id="NPM的使用场景"><a href="#NPM的使用场景" class="headerlink" title="NPM的使用场景"></a>NPM的使用场景</h2><p>NPM随同Node JS一起安装的包管理工具，能解决Node JS代码部署上的很多问题，常见的应用场景：</p>
-<p>(1) 允许用户从NPM服务器下载别人编写的第三方包到本地使用</p>
-<p>(2) 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用</p>
-<p>(3) 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用</p>
-<p>首先测试随Node JS一起安装的NPM版本，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure></p>
-<p>升级该NPM版本的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g npm</span><br></pre></td></tr></table></figure></p>
-<p>其次，查看程序的默认配置，方便以后找文件：</p>
-<p>npm config 的使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm config set &lt;key&gt; &lt;value&gt;</span><br><span class="line">npm config get [&lt;key&gt;]</span><br><span class="line">npm config delete &lt;key&gt;</span><br><span class="line">npm config list [--json]</span><br><span class="line">npm config edit</span><br><span class="line">npm set &lt;key&gt; &lt;value&gt;</span><br><span class="line">npm get [&lt;key&gt;]</span><br></pre></td></tr></table></figure></p>
-<p>使用以下命令可以看到常用的配置列表，如（默认文件存储位置和缓存位置，）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config list</span><br></pre></td></tr></table></figure></p>
-<p>一般情况下，npm的默认文件位置和缓存位置都在C盘，可以修改，例：修改默认配置的方法(注意是双斜杠)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;F:\\NPM\\prefix&quot;</span><br></pre></td></tr></table></figure></p>
-<p>上述配置后，就将文件的存储位置改了，可以用以下代码验证，是否成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get prefix</span><br></pre></td></tr></table></figure></p>
-<p>然后就可以安装你想要的模块了(若不需要修改默认路径，则可以不用上述操作)</p>
-<p>在命令窗口，打开子文件夹的方法“cd 子文件夹”;</p>
-<p>返回上层文件夹用“../”;</p>
+        <p>#CSS中的float、flex的使用<br><a id="more"></a><br>实现右边宽度固定，左边自适应<br>示例1(使用float实现)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"> body&#123;</span><br><span class="line">    width: auto; /*width:100%;*/</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    background: #0ff;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    width: 300px;</span><br><span class="line">    float: right;</span><br><span class="line">    background: #ff0;</span><br><span class="line">&#125;   </span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p><code>float</code>在使用时，要注意，设置<code>float: right</code>时，若空间充裕，该代码的下一行将和被设置行在同一行；而不是被设置行和上一代码行同行。所以，实现右边宽度固定，左边自适应时，需要将自适应的那行写在下面。</p>
+<p>示例2(使用flex实现)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    body&#123;</span><br><span class="line">        display:flex;</span><br><span class="line">    &#125;</span><br><span class="line">    .left&#123;</span><br><span class="line">        height:200px;</span><br><span class="line">        flex:1;</span><br><span class="line">        background:#0ff;</span><br><span class="line">    &#125;</span><br><span class="line">    .right&#123;</span><br><span class="line">        height:200px;</span><br><span class="line">        width:300px;</span><br><span class="line">        background:#ff0;</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p>示例讲解：<br>Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为Flex布局（包括行内元素）。</p>
+<p>行内元素也可以使用Flex布局：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;  display: inline-flex;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Webkit内核的浏览器，必须加上-webkit前缀:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  display: -webkit-flex; /* Safari */</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注: 设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
+<p>容器的属性:<br>以下6个属性设置在容器上:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">flex-direction //flex-direction属性决定主轴的方向（即项目的排列方向</span><br><span class="line">flex-wrap //flex-wrap属性定义，如果一条轴线排不下，如何换行</span><br><span class="line">flex-flow //是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</span><br><span class="line">justify-content //定义了项目在主轴上的对齐方式</span><br><span class="line">align-items  //定义项目在交叉轴上如何对齐</span><br><span class="line">align-content //定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://pan-rong.github.io/2018/03/05/NPMnotes/" data-id="cjeoy9dfz0009zokgx9bhg1bl" class="article-share-link">分享到</a>
+        <a data-url="https://pan-rong.github.io/2018/03/06/CSS中float/" data-id="cjeoy9df40001zokgy25kz2rg" class="article-share-link">分享到</a>
       
 
       
-        <a href="https://pan-rong.github.io/2018/03/05/NPMnotes/#disqus_thread" class="article-comment-link">评论</a>
+        <a href="https://pan-rong.github.io/2018/03/06/CSS中float/#disqus_thread" class="article-comment-link">评论</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NPM/">NPM</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
 
     </footer>
   </div>
@@ -131,19 +124,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/03/05/跨域请求整理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/07/JS获取屏幕尺寸/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">
         
-          跨域请求整理
+          JS获取页面、屏幕尺寸
         
       </div>
     </a>
   
   
-    <a href="/2018/03/03/ES6notes/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/06/meta标签-IE兼容/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">ES6学习笔记</div>
+      <div class="article-nav-title">meta标签-IE兼容</div>
     </a>
   
 </nav>
@@ -276,7 +269,7 @@
 <script>
   var disqus_shortname = 'Pan-Rong';
   
-  var disqus_url = 'https://pan-rong.github.io/2018/03/05/NPMnotes/';
+  var disqus_url = 'https://pan-rong.github.io/2018/03/06/CSS中float/';
   
   (function(){
     var dsq = document.createElement('script');

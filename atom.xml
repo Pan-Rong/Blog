@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://pan-rong.github.io/"/>
-  <updated>2018-03-13T00:49:36.777Z</updated>
+  <updated>2018-03-13T00:58:59.829Z</updated>
   <id>https://pan-rong.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://pan-rong.github.io/2018/03/11/Flex%E5%B8%83%E5%B1%80/"/>
     <id>https://pan-rong.github.io/2018/03/11/Flex布局/</id>
     <published>2018-03-11T09:09:03.000Z</published>
-    <updated>2018-03-13T00:49:36.777Z</updated>
+    <updated>2018-03-13T00:58:59.829Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h1><a id="more"></a><h2 id="Flex布局参考1参考2"><a href="#Flex布局参考1参考2" class="headerlink" title="Flex布局参考1参考2"></a>Flex布局<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">参考1</a><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">参考2</a></h2><h2 id="Flex布局是什么？"><a href="#Flex布局是什么？" class="headerlink" title="Flex布局是什么？"></a>Flex布局是什么？</h2><p>Flex是Flexible Box的缩写，意为“弹性布局”，用来为盒模型提供最大的灵活性。任何一个容器都可以指定为Flex布局</p><p>Webkit内核的浏览器，必须加上<code>-webkit</code>前缀</p><p><strong><em>注</em></strong><br>设为Flex布局后，子元素的float,clear 和vertical-align属性将失效。</p><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”项目”。</p><h2 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h2><p>容器有6个属性：</p><p>(1) flex-direction : 决定主轴的方向(即项目的排列方向),可取值(row(默认值，水平方向)，row-reverse,column,column-reverse)</p><p>(2) flex-wrap : 决定是否换行，可取值(nowrap[默认值],wrap,wrap-reverse)</p><p>(3) flex-flow : 是flex-direction 和flex-wrap属性的简写形式</p><p>(4) justify-content : 项目在主轴方向上的对齐方式，可取值(flex-start[左对齐，默认],flex-end,center,space-between[两端对齐],space-around[每个项目两侧的间隔相等])</p><p>(5) align-items : 项目在交叉轴上的对齐方式，可取值(flex-start,flex-end,center,baseline[项目的第一行文字的基线对齐],stretch[若项目为设高度或设为auto,将占满整个容器的高度])</p><p>(6) align-content : 定义多根轴线的对齐方式。若项目只有一根轴线，该属性不起作用；可取值(flex-start,flex-end,center,space-between,space-around,stretch[默认值])</p><h2 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h2><p>项目也有6个属性</p><p>(1) order :定义项目的排列顺序。数值越小，越靠前，默认为0.</p><p>(2) flex-grow :定义放大比例，默认为0，即若存在剩余空间，也不放大 </p><p>(3) flex-shrink ：定义项目缩小比例，默认为1，若空间不足，该项目将缩小。</p><p>(4) flex-basis ：定义在分配多余空间之前，项目占据的主轴空间，默认为auto,即项目本来大小</p><p>(5) flex ：是flex-grow,flex-shrink,flex-basis的简写，默认是 0 1 auto.后两个属性可选。</p><p>(6) align-self ：允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto.表示继承父元素的align-items。若没有父元素，则等同于stretch。可取值(auto,flex-start.flex-end,center,baseline,stretch);</p>]]></content>
     
@@ -32,7 +32,7 @@
     </summary>
     
     
-      <category term="CSS" scheme="https://pan-rong.github.io/tags/CSS/"/>
+      <category term="css" scheme="https://pan-rong.github.io/tags/css/"/>
     
   </entry>
   
@@ -53,6 +53,70 @@
     
     
       <category term="javascript" scheme="https://pan-rong.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS布局讲解float、flex使用</title>
+    <link href="https://pan-rong.github.io/2018/03/06/CSS%E4%B8%ADfloat/"/>
+    <id>https://pan-rong.github.io/2018/03/06/CSS中float/</id>
+    <published>2018-03-06T07:47:10.000Z</published>
+    <updated>2018-03-06T08:12:12.280Z</updated>
+    
+    <content type="html"><![CDATA[<p>#CSS中的float、flex的使用<br><a id="more"></a><br>实现右边宽度固定，左边自适应<br>示例1(使用float实现)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"> body&#123;</span><br><span class="line">    width: auto; /*width:100%;*/</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    background: #0ff;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    width: 300px;</span><br><span class="line">    float: right;</span><br><span class="line">    background: #ff0;</span><br><span class="line">&#125;   </span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p><p><code>float</code>在使用时，要注意，设置<code>float: right</code>时，若空间充裕，该代码的下一行将和被设置行在同一行；而不是被设置行和上一代码行同行。所以，实现右边宽度固定，左边自适应时，需要将自适应的那行写在下面。</p><p>示例2(使用flex实现)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    body&#123;</span><br><span class="line">        display:flex;</span><br><span class="line">    &#125;</span><br><span class="line">    .left&#123;</span><br><span class="line">        height:200px;</span><br><span class="line">        flex:1;</span><br><span class="line">        background:#0ff;</span><br><span class="line">    &#125;</span><br><span class="line">    .right&#123;</span><br><span class="line">        height:200px;</span><br><span class="line">        width:300px;</span><br><span class="line">        background:#ff0;</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br></pre></td></tr></table></figure></p><p>示例讲解：<br>Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为Flex布局（包括行内元素）。</p><p>行内元素也可以使用Flex布局：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;  display: inline-flex;&#125;</span><br></pre></td></tr></table></figure></p><p>Webkit内核的浏览器，必须加上-webkit前缀:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  display: -webkit-flex; /* Safari */</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>注: 设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p><p>容器的属性:<br>以下6个属性设置在容器上:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">flex-direction //flex-direction属性决定主轴的方向（即项目的排列方向</span><br><span class="line">flex-wrap //flex-wrap属性定义，如果一条轴线排不下，如何换行</span><br><span class="line">flex-flow //是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</span><br><span class="line">justify-content //定义了项目在主轴上的对齐方式</span><br><span class="line">align-items  //定义项目在交叉轴上如何对齐</span><br><span class="line">align-content //定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      学习笔记
+    
+    </summary>
+    
+    
+      <category term="css" scheme="https://pan-rong.github.io/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>meta标签-IE兼容</title>
+    <link href="https://pan-rong.github.io/2018/03/06/meta%E6%A0%87%E7%AD%BE-IE%E5%85%BC%E5%AE%B9/"/>
+    <id>https://pan-rong.github.io/2018/03/06/meta标签-IE兼容/</id>
+    <published>2018-03-06T07:16:10.000Z</published>
+    <updated>2018-03-06T07:32:09.061Z</updated>
+    
+    <content type="html"><![CDATA[<p>#meta标签-IE兼容<a href="http://www.cnblogs.com/chendc/p/5423337.html" target="_blank" rel="noopener">参考1</a> <a href="http://www.cnblogs.com/nidilzhang/archive/2010/01/09/1642887.html" target="_blank" rel="noopener">参考2</a><br><a id="more"></a><br>在平时的写网页代码时，一般都会写下面这段代码，是什么作用呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br></pre></td></tr></table></figure></p><p><code>X-UA-Compatible</code>是<code>IE8</code>的一个专有<code>&lt;meta&gt;</code>属性，它告诉<code>IE8</code>采用何种<code>IE</code>版本去渲染网页;当<code>content</code>写成等于<code>ie=edge</code>时，模式<code>Edge</code>模式告诉<code>IE</code>以最高级模式渲染文档，也就是任何<code>IE</code>版本都以当前版本所支持的最高级标准模式渲染，避免版本升级造成的影响.</p><p>使用以下代码强制 <code>IE</code> 使用 <code>Chrome Frame</code> 渲染<br><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;chrome=1&quot;&gt;</code></p><p>最佳的兼容模式方案：<br><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;</code></p>]]></content>
+    
+    <summary type="html">
+    
+      学习笔记
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://pan-rong.github.io/tags/javascript/"/>
+    
+      <category term="meta" scheme="https://pan-rong.github.io/tags/meta/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>meta中的viewport指令</title>
+    <link href="https://pan-rong.github.io/2018/03/06/meta%E4%B8%AD%E7%9A%84viewport%E6%8C%87%E4%BB%A4/"/>
+    <id>https://pan-rong.github.io/2018/03/06/meta中的viewport指令/</id>
+    <published>2018-03-06T06:53:10.000Z</published>
+    <updated>2018-03-06T07:15:26.410Z</updated>
+    
+    <content type="html"><![CDATA[<p>#meta中的viewport指令<a href="http://www.cnblogs.com/ubunoon/archive/2012/07/27/2612243.html" target="_blank" rel="noopener">参考</a><br><a id="more"></a><br>我们常常在html的head里看到如下代码行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot;&gt;</span><br></pre></td></tr></table></figure></p><p>viewport<meta>标记用于指定用户是否可以缩放Web页面，同时还表示文档针对移动设备进行了优化。若选择可以缩放Web页面，需要写明缩放比例。</p><p>viewport<meta>标记的content值是由指令及其值组成的，以逗号分隔的列表。</p><p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=”viewport” content=”width=240, height=320, user-scalable=yes, initial-scale=2.5, maximum-scale=5.0, minimun-scale=1.0”&gt;</span><br></pre></td></tr></table></figure></p><p><code>width</code>和<code>height</code>指令分别指定视区的逻辑宽度和高度。他们的值要么是以像素为单位的数字，要么是一个特殊的标记符号。<code>width</code>指令使用<code>device-width</code>标记可以指示视区宽度应为设备的屏幕宽度。类似地<code>height</code>指令使用<code>device-height</code>标记指示视区高度为设备的屏幕高度。</p><p><code>user-scalable</code>指令指定用户是否可以缩放视区，即缩放<code>Web</code>页面的视图。值为<code>yes</code>时允许用户进行缩放，值为<code>no</code>时不允许缩放.</p><p><code>initial-scale</code>指令用于设置<code>Web</code>页面的初始缩放比例。默认的初始缩放比例值因智能手机浏览器的不同而有所差异。通常情况下设备会在浏览器中呈现出整个<code>Web</code>页面，设为<code>1.0</code>则将显示未经缩放的<code>Web</code>文档.</p><p><code>maximum-scale</code>和<code>minimum-scale</code>指令用于设置用户对<code>Web</code>页面缩放比例的限制。值的范围为<code>0.25</code>至<code>10.0</code>之间。与<code>initial-scale</code>相同，这些指令的值是应用于视区内容的缩放比例.</p><p>所有智能手机浏览器都支持<code>ViewPort &lt;meta&gt;</code>标记的<code>width</code>和<code>user-scalabel</code>指令。但是<code>Opera Mobile</code>不使用<code>user-scalable</code>指令，而是主张用户应始终保留在移动浏览器中缩放<code>Web</code>页面的能力.</p>]]></content>
+    
+    <summary type="html">
+    
+      学习笔记
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://pan-rong.github.io/tags/javascript/"/>
+    
+      <category term="meta" scheme="https://pan-rong.github.io/tags/meta/"/>
     
   </entry>
   
